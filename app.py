@@ -46,6 +46,10 @@ class TipRequest(BaseModel):
 def home():
     return {"message": "🚀 Tip Prediction API is up and running!"}
 
+@app.get("/info", tags=["Information"])
+def info():
+    return {"message": "Hello My name is Abhijeet and this is my first model deployment in AWS and CICD Pipeline."}
+
 # Predict route
 @app.post("/predict", tags=["Prediction"])
 def predict(data: TipRequest):
