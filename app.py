@@ -40,6 +40,10 @@ class TipRequest(BaseModel):
     day: Annotated[Literal["Thur", "Fri", "Sat", "Sun"], Field(...,description="Day of the week")]
     time: Annotated[Literal["Lunch", "Dinner"], Field(..., description="Time of the meal")]
     size: Annotated[int, Field(..., ge=1, le=20, description="Size of the dining party")]
+    
+class Nums(BaseModel):
+    a: int
+    b: int
 
 # Home route
 @app.get("/", tags=["Health"])
@@ -62,6 +66,10 @@ def view():
     }
     
     return data
+
+@app.post("/add", tags=["Addition"])
+def add_two_numbers(nums: Nums):
+    return nums.a + nums.b
 
 # Predict route
 @app.post("/predict", tags=["Prediction"])
