@@ -49,6 +49,19 @@ def home():
 @app.get("/info", tags=["Information"])
 def info():
     return {"message": "Hello My name is Abhijeet and this is my first model deployment in AWS and CICD Pipeline."}
+@app.get("/view", tags=["view of people"])
+def view():
+    data = {
+        "people": [
+            {"name": "Abhijeet", "age": 22, "profession": "Data Scientist"},
+            {"name": "John", "age": 30, "profession": "Software Engineer"},
+            {"name": "Alice", "age": 28, "profession": "Product Manager"},
+            {"name": "Rushita", "age": 22, "profession": "UX Designer"},
+            {"name": "Aisha", "age": 23, "profession": "DevOps Engineer"}
+        ]
+    }
+    
+    return data
 
 # Predict route
 @app.post("/predict", tags=["Prediction"])
